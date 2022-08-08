@@ -55,7 +55,8 @@ def multiple_test_portfolio(*funcs):
                 'average': cls.get_portfolio_average,
                 'average_g': cls.get_portfolio_greedy_average,
                 'average_g_n': cls.get_portfolio_greedy_negative_average,
-                 'average_g_n_pct': cls.get_portfolio_greedy_negative_average_pct}
+                 'average_g_n_pct': cls.get_portfolio_greedy_negative_average_pct,
+                 'ensemble': cls.get_portfolio_ensemble}
     for func_name in funcs:
         func = func_dict[func_name]
         sharpe_value = _test_portfolio(func)
@@ -63,6 +64,6 @@ def multiple_test_portfolio(*funcs):
 
 
 if __name__ == '__main__':
-    multiple_test_portfolio('transformer', 'baseline', 'average', 'average_g', 'average_g_n', 'average_g_n_pct')
+    multiple_test_portfolio('ensemble', 'baseline', 'average', 'average_g', 'average_g_n', 'average_g_n_pct', 'transformer')
     # multiple_test_portfolio('baseline', 'baseline_no_nan', 'minvar', 'minvar_no_nan', 'transformer')
     # _test_portfolio()
